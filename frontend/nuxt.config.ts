@@ -1,0 +1,70 @@
+export default defineNuxtConfig({
+    compatibilityDate: '2025-07-15',
+    ssr: true,
+
+    typescript: {
+        strict: true,
+        typeCheck: true,
+    },
+
+    app: {
+        head: {
+            htmlAttrs: {
+                lang: 'ru',
+            },
+            link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
+            meta: [
+                { name: 'robots', content: 'index, follow' },
+                { property: 'og:type', content: 'website' },
+            ],
+        },
+    },
+
+    runtimeConfig: {
+        public: {
+            apiBase: process.env.DIRECTUS_URL || 'http://localhost:8055',
+            siteUrl: process.env.BASE_URL || 'http://localhost:3000',
+        },
+        smtp: {
+            host: process.env.SMTP_HOST || '',
+            port: process.env.SMTP_PORT || '',
+            user: process.env.SMTP_USER || '',
+            pass: process.env.SMTP_PASS || '',
+            target: process.env.SMTP_TARGET || '',
+        },
+        directus: {
+            url: process.env.DIRECTUS_URL || 'http://localhost:8055',
+            token: process.env.DIRECTUS_TOKEN || '',
+        },
+    },
+
+    modules: [
+        '@pinia/nuxt',
+        '@nuxt/eslint',
+        'nuxt-svg-sprite-icon',
+        '@vueuse/nuxt',
+        '@primevue/nuxt-module',
+        '@vue-final-modal/nuxt',
+    ],
+
+    css: ['vue-final-modal/style.css', '~/assets/css/main.css'],
+
+    // -------------------------svg-sprite--------------------------
+    svgSprite: {
+        input: './app/assets/svg',
+        output: './app/assets/svg/gen',
+        defaultSprite: 'icons',
+        elementClass: 'icon',
+        optimize: false,
+    },
+    // ------------------------------------------------------------
+
+    // ------------------------Алиасы и тд.------------------------
+    build: {
+        transpile: ['@fancyapps/ui', 'fancyapps-ui'],
+    },
+    alias: {
+        'fancyapps-ui': './@fancyapps/ui/dist/index.esm.js',
+    },
+    // ------------------------------------------------------------
+});

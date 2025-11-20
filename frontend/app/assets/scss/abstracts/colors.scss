@@ -1,0 +1,32 @@
+$c-000000: #000000;
+$c-FFFFFF: #ffffff;
+
+$c-111111: #111111;
+$c-E41F1A: #e41f1a;
+$c-F3F2EE: #f3f2ee;
+$c-9E9595: #9e9595;
+$c-323232: #323232;
+
+$c-0FD2D3: #0fd2d3; // противоположный E41F1A
+
+$c-1d201f: #1d201f;
+$c-f7f9f7: #f7f9f7;
+$c-45c95a: #45c95a;
+
+$c-telegram: #03a4df;
+$c-ok: #ff7700;
+$c-vk: #03a4df;
+$c-instagram: linear-gradient(
+    45deg,
+    #feda75 0%,
+    #fa7e1e 25%,
+    #d62976 50%,
+    #962fbf 75%,
+    #4f5bd5 100%
+);
+
+$c-text: $c-111111;
+$c-main: $c-F3F2EE;
+$c-accent: $c-E41F1A;
+
+$skeleton-color: #e2e8f0;

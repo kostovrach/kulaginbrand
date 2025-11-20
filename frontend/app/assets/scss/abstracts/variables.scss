@@ -1,0 +1,13 @@
+@use './functions' as *;
+
+$py: lineScale-y(114, 64, 480, 1200); // layout padding-y
+$px: lineScale(64, 16, 480, 1440); // layout padding-x
+
+$td: 0.6s;
+$tf: ease;
+$tf-spring: cubic-bezier(0.36, 1.5, 0.64, 1);
+
+$fw-med: 500;
+$fw-semi: 600;
+$fw-bold: 700;
+$fw-black: 900;

@@ -1,0 +1,10 @@
+@import './null.css';
+@import './fonts.css';
+
+.ruble::after {
+    content: '\20BD';
+}
+
+.fancybox__dialog {
+    max-width: 100vw !important;
+}

@@ -1,0 +1,151 @@
+/* Montserrat */
+@font-face {
+    font-family: 'Montserrat';
+    font-display: swap;
+    src:
+        url('../fonts/Montserrat-Variable.woff2') format('woff2'),
+        url('../fonts/Montserrat-Variable.ttf') format('ttf');
+    font-weight: 350 900;
+    font-style: normal;
+}
+
+/* Inter */
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+    src:
+        url('../fonts/Inter-Variable.woff2') format('woff2'),
+        url('../fonts/Inter-Variable.ttf') format('ttf');
+    font-weight: 350 900;
+    font-style: normal;
+}
+
+/* Fira */
+@font-face {
+    font-family: 'Fira';
+    font-display: swap;
+    src:
+        url('../fonts/FiraCondensed-Light.woff2') format('woff2'),
+        url('../fonts/FiraCondensed-Light.ttf') format('ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fira';
+    font-display: swap;
+    src:
+        url('../fonts/FiraCondensed-Regular.woff2') format('woff2'),
+        url('../fonts/FiraCondensed-Regular.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fira';
+    font-display: swap;
+    src:
+        url('../fonts/FiraCondensed-Medium.woff2') format('woff2'),
+        url('../fonts/FiraCondensed-Medium.ttf') format('ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fira';
+    font-display: swap;
+    src:
+        url('../fonts/FiraCondensed-SemiBold.woff2') format('woff2'),
+        url('../fonts/FiraCondensed-SemiBold.ttf') format('ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fira';
+    font-display: swap;
+    src:
+        url('../fonts/FiraCondensed-Bold.woff2') format('woff2'),
+        url('../fonts/FiraCondensed-Bold.ttf') format('ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fira';
+    font-display: swap;
+    src:
+        url('../fonts/FiraCondensed-ExtraBold.woff2') format('woff2'),
+        url('../fonts/FiraCondensed-ExtraBold.ttf') format('ttf');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fira';
+    font-display: swap;
+    src:
+        url('../fonts/FiraCondensed-Black.woff2') format('woff2'),
+        url('../fonts/FiraCondensed-Black.ttf') format('ttf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* Fira Extra */
+@font-face {
+    font-family: 'Fira-Extra';
+    font-display: swap;
+    src:
+        url('../fonts/FiraExtraCondensed-Light.woff2') format('woff2'),
+        url('../fonts/FiraExtraCondensed-Light.ttf') format('ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fira-Extra';
+    font-display: swap;
+    src:
+        url('../fonts/FiraExtraCondensed-Regular.woff2') format('woff2'),
+        url('../fonts/FiraExtraCondensed-Regular.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fira-Extra';
+    font-display: swap;
+    src:
+        url('../fonts/FiraExtraCondensed-Medium.woff2') format('woff2'),
+        url('../fonts/FiraExtraCondensed-Medium.ttf') format('ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fira-Extra';
+    font-display: swap;
+    src:
+        url('../fonts/FiraExtraCondensed-SemiBold.woff2') format('woff2'),
+        url('../fonts/FiraExtraCondensed-SemiBold.ttf') format('ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fira-Extra';
+    font-display: swap;
+    src:
+        url('../fonts/FiraExtraCondensed-Bold.woff2') format('woff2'),
+        url('../fonts/FiraExtraCondensed-Bold.ttf') format('ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fira-Extra';
+    font-display: swap;
+    src:
+        url('../fonts/FiraExtraCondensed-ExtraBold.woff2') format('woff2'),
+        url('../fonts/FiraExtraCondensed-ExtraBold.ttf') format('ttf');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fira-Extra';
+    font-display: swap;
+    src:
+        url('../fonts/FiraExtraCondensed-Black.woff2') format('woff2'),
+        url('../fonts/FiraExtraCondensed-Black.ttf') format('ttf');
+    font-weight: 900;
+    font-style: normal;
+}
