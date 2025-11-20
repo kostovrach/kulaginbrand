@@ -1842,8 +1842,8 @@ COPY public.directus_roles (id, name, icon, description, parent) FROM stdin;
 --
 
 COPY public.directus_sessions (token, "user", expires, ip, user_agent, share, origin, next_token) FROM stdin;
-xk5NkR8ULyVtZUYU1TuTkT4nJYft8DzdbdGk4EvTrtmIrQoZ-0Gu-uNQA3sH-dCA	d05b00f5-2aeb-4f89-ad64-e41ca3b0327a	2025-11-20 13:16:37.038+00	172.18.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 OPR/123.0.0.0 (Edition Yx GX 03)	\N	http://localhost:8055	YvbQT_WmgxTvVBoMozCpcfAXZldeBRuuON1LUI1RHAEfAfSxkvqIqBCZg2XNHeMz
-YvbQT_WmgxTvVBoMozCpcfAXZldeBRuuON1LUI1RHAEfAfSxkvqIqBCZg2XNHeMz	d05b00f5-2aeb-4f89-ad64-e41ca3b0327a	2025-11-21 13:16:27.038+00	172.18.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 OPR/123.0.0.0 (Edition Yx GX 03)	\N	http://localhost:8055	\N
+YvbQT_WmgxTvVBoMozCpcfAXZldeBRuuON1LUI1RHAEfAfSxkvqIqBCZg2XNHeMz	d05b00f5-2aeb-4f89-ad64-e41ca3b0327a	2025-11-20 15:26:17.777+00	172.18.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 OPR/123.0.0.0 (Edition Yx GX 03)	\N	http://localhost:8055	sJpc2D_BOfxNSeDoOONFQi50DCytk-Dbg9XX5U20FMuYjp1JBYcQI6sdb_GWRFPR
+sJpc2D_BOfxNSeDoOONFQi50DCytk-Dbg9XX5U20FMuYjp1JBYcQI6sdb_GWRFPR	d05b00f5-2aeb-4f89-ad64-e41ca3b0327a	2025-11-21 15:26:07.776+00	172.18.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 OPR/123.0.0.0 (Edition Yx GX 03)	\N	http://localhost:8055	\N
 \.
 
 
@@ -1877,7 +1877,7 @@ COPY public.directus_translations (id, language, key, value) FROM stdin;
 --
 
 COPY public.directus_users (id, first_name, last_name, email, password, location, title, description, tags, avatar, language, tfa_secret, status, role, token, last_access, last_page, provider, external_identifier, auth_data, email_notifications, appearance, theme_dark, theme_light, theme_light_overrides, theme_dark_overrides, text_direction) FROM stdin;
-d05b00f5-2aeb-4f89-ad64-e41ca3b0327a	Kulagin-studio	\N	theplace2024@yandex.ru	$argon2id$v=19$m=65536,t=3,p=4$xwBvwoDzOWVZ3nSXT5rt4A$zaYmuZ5rLQb3NR/jKA+YFdDfKbe3u+Vua091riv5vc8	\N	\N	\N	\N	227d60c0-b241-4c94-9f8d-16e8d8eca0d9	\N	\N	active	5a09e807-f654-4501-ab1b-e2bb5f612679	\N	2025-11-20 13:16:27.049+00	/content/seo	default	\N	\N	t	\N	\N	\N	\N	\N	auto
+d05b00f5-2aeb-4f89-ad64-e41ca3b0327a	Kulagin-studio	\N	theplace2024@yandex.ru	$argon2id$v=19$m=65536,t=3,p=4$xwBvwoDzOWVZ3nSXT5rt4A$zaYmuZ5rLQb3NR/jKA+YFdDfKbe3u+Vua091riv5vc8	\N	\N	\N	\N	227d60c0-b241-4c94-9f8d-16e8d8eca0d9	\N	\N	active	5a09e807-f654-4501-ab1b-e2bb5f612679	\N	2025-11-20 15:26:07.803+00	/content/seo	default	\N	\N	t	\N	\N	\N	\N	\N	auto
 2545f07d-7228-4759-a84b-607cc64e44c1	frontend	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	active	\N	UyMhffIWvbYNvX02b3nTuRfWqftpTAm9	\N	\N	default	\N	\N	f	\N	\N	\N	\N	\N	auto
 \.
 

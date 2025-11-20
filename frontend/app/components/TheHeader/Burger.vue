@@ -14,7 +14,7 @@
     .burger {
         $width: rem(24);
         $line-height: rem(2);
-        $color: currentColor;
+        $color: $c-FFFFFF;
 
         cursor: pointer;
         position: relative;

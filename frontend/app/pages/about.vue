@@ -1,13 +1,9 @@
 <template>
     <NuxtLayout>
-
+        <AboutHero title="test" subtitle="test" image-url="#" :hint="null" />
     </NuxtLayout>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
-
-<style scoped>
-
-</style>
+<style scoped></style>

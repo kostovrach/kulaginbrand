@@ -34,7 +34,6 @@
     }
 }
 
-
 @mixin block-title($max-width: 15ch, $font-size: lineScale-y(96, 40, 480, 1080)) {
     font-family: 'Fira-Extra', sans-serif;
     font-weight: $fw-bold;
@@ -255,7 +254,6 @@
         }
     }
 }
-
 
 // effects
 @mixin gradient-text-hover($main-color: $c-000000, $accent-color: $c-FFFFFF) {

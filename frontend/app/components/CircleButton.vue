@@ -12,7 +12,8 @@
         <div class="circle-button__body">
             <span v-if="firstPart">{{ firstPart }}</span>
             <span v-if="secondPart">
-                {{ secondPart }}<SvgSprite type="arrow" :size="14" style="rotate: -45deg;" />
+                {{ secondPart }}
+                <SvgSprite type="arrow" :size="14" style="rotate: -45deg" />
             </span>
             <div class="circle-button__icon">
                 <span></span>
@@ -112,7 +113,7 @@
         justify-content: center;
         text-transform: uppercase;
         white-space: nowrap;
-        font-size: lineScale(32, 24, 480, 1440); // <-----
+        font-size: lineScale(24, 20, 480, 1440); // <-----
         font-weight: $fw-bold; // <-----
         border-radius: 50%;
         padding: lineScale(32, 24, 480, 1440); // <-----
