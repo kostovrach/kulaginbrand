@@ -1,47 +1,39 @@
 <template>
     <div class="section-hint">
-        <h3 class="section-hint__title">
-            <slot name="title"></slot>
-        </h3>
-        <p class="section-hint__text">
-            <slot name="text"></slot>
-        </p>
+        <h3 class="section-hint__title">{{ props.hint?.title }}</h3>
+        <p class="section-hint__text">{{ props.hint?.description }}</p>
         <button class="section-hint__media" @click="openVideo">
             <span class="section-hint__media-icon"><SvgSprite type="arrow" :size="30" /></span>
 
-            <div v-if="props.modalVideo" class="section-hint__media-video-container">
+            <div
+                v-if="props.hint?.video_url && props.hint?.video_url.length"
+                class="section-hint__media-video-container"
+            >
                 <video class="section-hint__media-video" autoplay muted loop playsinline>
-                    <source :src="props.modalVideo" />
+                    <source :src="props.hint?.video_url" type="video/mp4" />
                 </video>
             </div>
 
             <div class="section-hint__media-button">
                 <span><SvgSprite type="play" :size="11" /></span>
-                <p>
-                    <slot name="media-description"></slot>
-                </p>
+                <p>{{ props.hint?.button_text }}</p>
             </div>
         </button>
     </div>
 </template>
 
 <script setup lang="ts">
+    import type { IVideoHint } from '~~/interfaces/chunks/hint';
     import { ModalsVideo } from '#components';
     import { useModal } from 'vue-final-modal';
 
-    const props = withDefaults(
-        defineProps<{
-            modalTitle: string;
-            modalVideo: string;
-        }>(),
-        {}
-    );
+    const props = withDefaults(defineProps<{ hint: IVideoHint | null }>(), {hint: null});
 
     const { open: openVideo, close: closeVideo } = useModal({
         component: ModalsVideo,
         attrs: {
-            title: props.modalTitle,
-            videoUrl: props.modalVideo,
+            title: props.hint?.title ?? '',
+            videoUrl: props.hint?.video_url ?? '',
             onClose() {
                 closeVideo();
             },

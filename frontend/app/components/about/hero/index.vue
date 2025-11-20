@@ -36,32 +36,21 @@
                     />
                 </Draggble>
 
-                <TheSectionHint
-                    class="about-hero__hint"
-                    :modal-video="props?.hint?.video ?? ''"
-                    :modal-title="props?.hint?.title ?? ''"
-                >
-                    <template #title>{{ props?.hint?.title }}</template>
-                    <template #text>{{ props?.hint?.description }}</template>
-                    <template #media-description>{{ props?.hint?.button_text }}</template>
-                </TheSectionHint>
+                <TheSectionHint class="about-hero__hint" :hint="null" />
             </div>
         </div>
     </section>
 </template>
 
 <script setup lang="ts">
+    import type { IVideoHint } from '~~/interfaces/chunks/hint';
+
     const props = withDefaults(
         defineProps<{
             title: string;
             subtitle: string;
             imageUrl: string;
-            hint: {
-                video: string;
-                title: string;
-                description: string | null;
-                button_text: string;
-            } | null;
+            hint: IVideoHint | null;
         }>(),
         {
             title: '',

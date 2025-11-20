@@ -11,4 +11,5 @@ export interface IContact {
     whatsapp: string | null;
     ok: string | null;
     tiktok: string | null;
+    instagram: string | null;
 }

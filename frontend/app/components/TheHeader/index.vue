@@ -54,7 +54,7 @@
                     Связаться со мной
                 </NuxtLink>
                 <div class="header__menu">
-                    <TheHeaderBurger />
+                    <TheHeaderBurger @click="openMenu" />
                 </div>
             </div>
         </div>
@@ -62,21 +62,21 @@
 </template>
 
 <script setup lang="ts">
-    // import { ModalsSideMenu } from '#components';
-    // import { useModal } from 'vue-final-modal';
+    import { ModalsSideMenu } from '#components';
+    import { useModal } from 'vue-final-modal';
 
     const route = useRoute();
 
-    // // modals ==============================================================================
-    // const { open: openMenu, close: closeMenu } = useModal({
-    //     component: ModalsSideMenu,
-    //     attrs: {
-    //         onClose() {
-    //             closeMenu();
-    //         },
-    //     },
-    // });
-    // // =====================================================================================
+    // modals ==============================================================================
+    const { open: openMenu, close: closeMenu } = useModal({
+        component: ModalsSideMenu,
+        attrs: {
+            onClose() {
+                closeMenu();
+            },
+        },
+    });
+    // =====================================================================================
 </script>
 
 <style scoped lang="scss">

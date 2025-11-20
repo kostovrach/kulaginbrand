@@ -72,10 +72,10 @@
         top: 0;
         right: 0;
         width: 100%;
-        max-width: rem(800);
+        max-width: rem(754);
         height: 100lvh;
-        color: $c-FFFFFF;
-        background-color: $c-0C374B;
+        color: $c-main;
+        background-color: $c-111111;
         overflow-y: auto;
         @include hide-scrollbar;
         &__container {
@@ -100,12 +100,13 @@
             gap: rem(32);
         }
         &__title {
-            font-size: lineScale(64, 32, 480, 1920);
+            font-size: lineScale(64, 24, 480, 1920);
+            font-weight: $fw-bold;
         }
         &__tag {
             font-size: lineScale(17, 15, 480, 1920);
             color: $c-accent;
-            opacity: 0.7;
+            opacity: 0.8;
         }
         &__body {
             margin-top: rem(64);
@@ -117,16 +118,17 @@
             font-size: lineScale(17, 15, 480, 1920);
             line-height: 1.4;
             h2 {
-                color: $c-accent;
-                font-size: lineScale(32, 24, 480, 1920);
+                font-size: lineScale(32, 18, 480, 1920);
+                text-transform: uppercase;
+                font-weight: $fw-bold;
                 margin-top: rem(32);
             }
             h3,
             h4,
             h5,
             h6 {
-                color: $c-accent;
-                font-size: lineScale(22, 20, 480, 1920);
+                font-weight: $fw-bold;
+                font-size: lineScale(18, 16, 480, 1920);
             }
             ol > li,
             ul > li {
