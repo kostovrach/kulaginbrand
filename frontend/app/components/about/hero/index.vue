@@ -36,7 +36,7 @@
                     />
                 </Draggble>
 
-                <TheSectionHint class="about-hero__hint" :hint="null" />
+                <TheSectionHint class="about-hero__hint" :hint="props.hint" />
             </div>
         </div>
     </section>
@@ -95,12 +95,10 @@
         //
         &__image-container {
             position: relative;
-            bottom: calc($py * -1);
+            // bottom: calc($py * -1);
             max-width: rem(640);
             min-height: rem(340);
-            max-height: 100%;
-            overflow: hidden;
-            margin-top: rem(32);
+            // overflow: hidden;
             &::before {
                 content: '';
                 position: absolute;
@@ -118,7 +116,7 @@
             position: relative;
             z-index: 1;
             width: 100%;
-            height: 100%;
+            // height: 100%;
             object-fit: contain;
         }
         //

@@ -27,7 +27,7 @@
     import { ModalsVideo } from '#components';
     import { useModal } from 'vue-final-modal';
 
-    const props = withDefaults(defineProps<{ hint: IVideoHint | null }>(), {hint: null});
+    const props = withDefaults(defineProps<{ hint: IVideoHint | null }>(), { hint: null });
 
     const { open: openVideo, close: closeVideo } = useModal({
         component: ModalsVideo,

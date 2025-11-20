@@ -81,8 +81,8 @@
         &__container {
             display: flex;
             flex-direction: column;
-            padding: rem(32) lineScale(32, 16, 480, 1920) lineScale(96, 128, 480, 1920)
-                lineScale(32, 16, 480, 1920);
+            padding: rem(32) lineScale(64, 16, 480, 1920) lineScale(96, 128, 480, 1920)
+                lineScale(64, 16, 480, 1920);
         }
         &__button {
             cursor: pointer;

@@ -1,5 +1,5 @@
 <template>
-    <VueFinalModal overlay-transition="vfm-fade" content-transition="vfm-slide-top">
+    <VueFinalModal overlay-transition="vfm-fade" content-transition="vfm-fade">
         <div class="modal-video">
             <div class="modal-video__header">
                 <h2 class="modal-video__title">{{ props.title }}</h2>

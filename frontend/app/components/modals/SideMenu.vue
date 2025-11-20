@@ -131,35 +131,35 @@
     }[] = [
         {
             label: 'Kulagin brand',
-            path: { name: 'index' }
+            path: { name: 'index' },
         },
         {
             label: 'Обо мне',
-            path: { name: 'about' }
+            path: { name: 'about' },
         },
         {
             label: 'Услуги',
-            path: { name: 'services' }
+            path: { name: 'services' },
         },
         {
             label: 'Все проекты',
-            path: { name: 'projects' }
+            path: { name: 'projects' },
         },
         {
             label: 'Хобби',
-            path: { name: 'hobby' }
+            path: { name: 'hobby' },
         },
         {
             label: 'Маркетологам',
-            path: { name: 'marketers' }
+            path: { name: 'marketers' },
         },
         {
             label: 'Блог',
-            path: { name: 'blog' }
+            path: { name: 'blog' },
         },
         {
             label: 'Контакты',
-            path: { name: 'contact' }
+            path: { name: 'contact' },
         },
     ];
 </script>

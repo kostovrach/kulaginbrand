@@ -26,7 +26,10 @@ export function addFileUrls(obj: any): void {
             if (
                 typeof v === 'string' &&
                 UUID_RE.test(v) &&
-                (FILE_NAMES.has(k) || k.includes('image'))
+                (FILE_NAMES.has(k) ||
+                    k.includes('image') ||
+                    k.includes('gallery') ||
+                    k.includes('letter'))
             ) {
                 if (!node[`${k}_url`]) node[`${k}_url`] = assetUrl(v);
             } else if (v && typeof v === 'object') {

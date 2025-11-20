@@ -2,6 +2,7 @@
     <main id="page" class="home">
         <section class="home__container">
             <HomeAgency
+                class="fade-bottom"
                 :title="page?.agency_title ?? ''"
                 :subtitle="page?.agency_subtitle ?? ''"
                 :description="page?.agency_description ?? ''"
@@ -14,6 +15,7 @@
                 "
             />
             <HomeNavigator
+                class="fade-bottom"
                 :title="page?.personal_title ?? ''"
                 :subtitle="page?.personal_subtitle ?? ''"
                 :image="page?.personal_image_url ?? ''"
