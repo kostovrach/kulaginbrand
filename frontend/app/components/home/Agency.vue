@@ -3,7 +3,7 @@
         <CircleButton
             class="agency__follower"
             type="a"
-            href="https://kulaginbrand.ru"
+            :href="props.link.trim().replace(/\s+/g, '') ?? '#'"
             target="_blank"
             variant="grey"
             logic="noanim"
@@ -13,57 +13,53 @@
                 cursor: 'none',
             }"
         >
-            Заказать&nbsp;проект
+            <span>Заказать&nbsp;проект</span>
         </CircleButton>
         <div class="agency__wrapper">
             <div class="agency__titlebox">
-                <h2 class="agency__title">Дизайн студия</h2>
-                <p class="agency__subtitle">
-                    Симбиоз талантливых и неординарных личностей, создающих нечто более, чни просто
-                    продукт
-                </p>
-                <a class="agency__link" :href="`tel:`">+7 (927) 714-33-39</a>
+                <h2 class="agency__title">{{ props.title }}</h2>
+                <p class="agency__subtitle">{{ props.subtitle }}</p>
+                <p class="agency__link" v-if="props.description.length">{{ props.description }}</p>
             </div>
             <CircleButton
                 class="agency__button"
                 type="a"
-                href="https://kulaginbrand.ru"
+                :href="props.link.trim().replace(/\s+/g, '') ?? '#'"
                 target="_blank"
                 variant="grey"
                 style="font-size: 20px"
             >
                 Заказать&nbsp;проект
             </CircleButton>
-            <AutoAccordion class="agency__list" :interval="5000">
-                <li class="agency__item">
-                    <h3 class="agency__item-title">Брендинг</h3>
-                    <picture class="agency__item-image-container">
-                        <img class="agency__item-image" src="/img/content/snapshot.gif" alt="#" />
-                    </picture>
-                </li>
-                <li class="agency__item">
-                    <h3 class="agency__item-title">Создание сайтов</h3>
-                    <picture class="agency__item-image-container">
-                        <img class="agency__item-image" src="/img/content/snapshot.gif" alt="#" />
-                    </picture>
-                </li>
-                <li class="agency__item">
-                    <h3 class="agency__item-title">Продвижение</h3>
-                    <picture class="agency__item-image-container">
-                        <img class="agency__item-image" src="/img/content/snapshot.gif" alt="#" />
-                    </picture>
-                </li>
-            </AutoAccordion>
+            <HomeAutoAccordion :interval="5000" :items="props.slides"></HomeAutoAccordion>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+    const props = withDefaults(
+        defineProps<{
+            title: string;
+            subtitle: string;
+            description?: string;
+            link: string;
+            slides: {
+                title: string;
+                image: string;
+            }[];
+        }>(),
+        {
+            title: '',
+            subtitle: '',
+            description: '',
+            slides: () => [],
+        }
+    );
+
     const container = ref<HTMLElement | null>(null);
-    const { x: mouseX, y: mouseY } = useMouse({ target: container, touch: false });
-    // defineProps({
-    //     content: { type: Object, default: () => ({}) },
-    // });
+    const { elementX: mouseX, elementY: mouseY } = useMouseInElement(container, {
+        handleOutside: false,
+    });
 </script>
 
 <style lang="scss" scoped>
@@ -72,6 +68,7 @@
     .agency {
         $p: &;
 
+        position: relative;
         background-color: $c-main;
         border-radius: rem(24);
         padding: rem(16);
@@ -86,7 +83,9 @@
             top: 0;
             left: 0;
             transform: translate(-50%, -50%);
-            transition: opacity $td $tf, translate 0.03s linear;
+            transition:
+                opacity $td $tf,
+                translate 0.03s linear;
             @media (pointer: coarse) {
                 display: none;
             }
@@ -130,54 +129,6 @@
             scale: 0.8;
             @media (pointer: coarse) {
                 display: flex;
-            }
-        }
-        &__list {
-            display: flex;
-            gap: rem(8);
-        }
-        &__item {
-            flex: 1 1 10%;
-            position: relative;
-            height: 100%;
-            height: rem(430);
-            overflow: hidden;
-            transition: flex 1.2s $tf;
-            &.active {
-                flex: 1 1 65%;
-                #{$p}__item-title {
-                    transform: scaleX(1);
-                    opacity: 1;
-                }
-            }
-            &-title {
-                position: absolute;
-                z-index: 1;
-                top: 50%;
-                left: 50%;
-                translate: -50% -50%;
-                text-transform: uppercase;
-                color: $c-main;
-                font-family: 'Fira-Extra', sans-serif;
-                font-size: lineScale(48, 18, 480, 1440);
-                font-weight: $fw-med;
-                white-space: nowrap;
-
-                transform: scaleX(0.5);
-                opacity: 0;
-                transition: all 1.5s $tf-spring;
-            }
-            &-image-container {
-                width: 100%;
-                height: 100%;
-                border-radius: rem(16);
-                overflow: hidden;
-                filter: brightness(60%);
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
             }
         }
     }

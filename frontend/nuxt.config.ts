@@ -12,7 +12,7 @@ export default defineNuxtConfig({
             htmlAttrs: {
                 lang: 'ru',
             },
-            link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
+            link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
             meta: [
                 { name: 'robots', content: 'index, follow' },
                 { property: 'og:type', content: 'website' },
