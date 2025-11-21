@@ -168,7 +168,7 @@
 
             <div class="projects__footer">
                 <div class="projects__interactive">
-                    <Draggble :top="60" :left="0" container="parent" , axis="y">
+                    <Draggble :top="60" :left="0" container="parent" axis="y">
                         <img src="/img/flag.png" alt="#" />
                     </Draggble>
                 </div>

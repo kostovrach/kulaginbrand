@@ -328,3 +328,12 @@
         el._getCurrentPercentage = () => ({ left: leftPercent, top: topPercent });
     }
 </script>
+
+<style scoped lang="scss">
+    @use '~/assets/scss/abstracts' as *;
+
+    .dragging {
+        scale: 1.02;
+        transition: scale $td $tf;
+    }
+</style>

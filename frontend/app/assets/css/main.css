@@ -1,6 +1,10 @@
 @import './null.css';
 @import './fonts.css';
 
+img {
+    user-select: none;
+}
+
 .ruble::after {
     content: '\20BD';
 }

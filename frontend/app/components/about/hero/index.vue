@@ -36,7 +36,7 @@
                     />
                 </Draggble>
 
-                <TheSectionHint class="about-hero__hint" :hint="props.hint" />
+                <TheSectionHint v-if="props.hint" class="about-hero__hint" :hint="props.hint" />
             </div>
         </div>
     </section>
