@@ -114,7 +114,7 @@
             pointer-events: auto;
             @media (pointer: fine) {
                 &:hover {
-                    rotate: -3deg;
+                    rotate: -1.5deg;
                 }
             }
         }

@@ -28,6 +28,7 @@ export function addFileUrls(obj: any): void {
                 UUID_RE.test(v) &&
                 (FILE_NAMES.has(k) ||
                     k.includes('image') ||
+                    k.includes('logo') ||
                     k.includes('gallery') ||
                     k.includes('letter'))
             ) {

@@ -33,6 +33,33 @@
                 image_9: page?.brand_gallery_9_url ?? '',
             }"
         />
+        <AboutProjects
+            :title="page?.projects_title ?? ''"
+            :project_1="{
+                title: page?.projects_project_1_title ?? '',
+                subtitle: page?.projects_project_1_subtitle ?? '',
+                link: page?.projects_project_1_link ?? '',
+                logo: page?.projects_project_1_logo_url ?? '',
+                image_1: page?.projects_project_1_image_1_url ?? '',
+                image_2: page?.projects_project_1_image_2_url ?? '',
+            }"
+            :divider="{ image: page?.projects_divider_image_url ?? '' }"
+            :project_2="{
+                title: page?.projects_project_2_title ?? '',
+                link: page?.projects_project_2_link ?? '',
+                logo: page?.projects_project_2_logo_url ?? '',
+                image_1: page?.projects_project_2_image_1_url ?? '',
+                image_2: page?.projects_project_2_image_2_url ?? '',
+                image_3: page?.projects_project_2_image_3_url ?? '',
+                image_4: page?.projects_project_2_image_4_url ?? '',
+            }"
+        />
+        <PageNavigator
+            tag="Далее"
+            title="Услуги"
+            :to="{ name: 'services' }"
+            :image="page?.navigator_image_url ?? ''"
+        />
     </NuxtLayout>
 </template>
 
@@ -90,6 +117,38 @@
 
         brand_image: string;
         brand_image_url?: string;
+
+        projects_title: string;
+        projects_project_1_title: string;
+        projects_project_1_subtitle: string;
+        projects_project_1_link: string;
+
+        projects_project_1_logo: string;
+        projects_project_1_logo_url?: string;
+        projects_project_1_image_1: string;
+        projects_project_1_image_1_url?: string;
+        projects_project_1_image_2: string;
+        projects_project_1_image_2_url?: string;
+
+        projects_divider_image: string;
+        projects_divider_image_url?: string;
+
+        projects_project_2_title: string;
+        projects_project_2_link: string;
+
+        projects_project_2_logo: string;
+        projects_project_2_logo_url?: string;
+        projects_project_2_image_1: string;
+        projects_project_2_image_1_url?: string;
+        projects_project_2_image_2: string;
+        projects_project_2_image_2_url?: string;
+        projects_project_2_image_3: string;
+        projects_project_2_image_3_url?: string;
+        projects_project_2_image_4: string;
+        projects_project_2_image_4_url?: string;
+
+        navigator_image: string;
+        navigator_image_url?: string;
     }
 
     const { content: page } = useCms<IAboutPage>('about_page', ['hero_hint.*', 'brand_hint.*']);

@@ -1,49 +1,49 @@
 <template>
-    <VueFinalModal overlay-transition="vfm-fade" content-transition="vfm-slide-top">
+    <VueFinalModal overlay-transition="vfm-fade" content-transition="vfm-fade">
         <div class="modal-interviews">
-            <div class="interviews-modal__container">
-                <div class="interviews-modal__header">
-                    <h2 class="interviews-modal__title">Интервью</h2>
+            <div class="modal-interviews__container">
+                <div class="modal-interviews__header">
+                    <h2 class="modal-interviews__title">Интервью</h2>
                     <button
-                        class="interviews-modal__button"
+                        class="modal-interviews__button"
                         aria-label="Закрыть"
                         @click="emit('close')"
                     >
                         <SvgSprite type="cross" :size="32" />
                     </button>
                 </div>
-                <div class="interviews-modal__body">
-                    <ul class="interviews-modal__list">
-                        <!-- <li
-                            v-for="item in page?.interviews_item"
+                <div class="modal-interviews__body">
+                    <ul class="modal-interviews__list">
+                        <li
+                            v-for="item in interviews"
                             :key="item.id"
-                            class="interviews-modal__item"
+                            class="modal-interviews__item"
                         >
-                            <picture class="interviews-modal__item-image-container">
+                            <picture class="modal-interviews__item-image-container">
                                 <img
-                                    class="interviews-modal__item-image"
-                                    :src="item.interviews_item_id?.logo_url"
-                                    :alt="item.interviews_item_id?.title"
+                                    class="modal-interviews__item-image"
+                                    :src="item.image_url ?? '/img/human-placeholder.png'"
+                                    :alt="item.title ?? '#'"
                                 />
                             </picture>
-                            <div class="interviews-modal__item-content">
-                                <h3 class="interviews-modal__item-title">
-                                    {{ item.interviews_item_id?.title }}
+                            <div class="modal-interviews__item-content">
+                                <h3 class="modal-interviews__item-title">
+                                    {{ item.title }}
                                 </h3>
                                 <a
-                                    v-if="item.interviews_item_id?.link"
-                                    class="interviews-modal__item-button"
-                                    :href="item.interviews_item_id?.link"
+                                    v-if="item.link"
+                                    class="modal-interviews__item-button"
+                                    :href="item.link.trim().replace(/\s+/g, '')"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <span class="interviews-modal__item-button-text">Смотреть</span>
-                                    <span class="interviews-modal__item-button-icon">
-                                        <TheSvgSprite type="arrow" :size="12" />
+                                    <span class="modal-interviews__item-button-text">Смотреть</span>
+                                    <span class="modal-interviews__item-button-icon">
+                                        <SvgSprite type="arrow" :size="12" />
                                     </span>
                                 </a>
                             </div>
-                        </li> -->
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -54,15 +54,27 @@
 <script setup lang="ts">
     import { VueFinalModal } from 'vue-final-modal';
 
+    interface IInterview {
+        id: string | number;
+        date_created: string;
+        date_updated: string | null;
+        title: string;
+        link: string;
+        image: string | null;
+        image_url?: string;
+    }
+
     const emit = defineEmits<{
         (e: 'close'): void;
     }>();
+
+    const { content: interviews } = useCms<IInterview[]>('interviews');
 </script>
 
 <style scoped lang="scss">
     @use '~/assets/scss/abstracts' as *;
 
-    .interviews-modal {
+    .modal-interviews {
         position: fixed;
         top: 50%;
         left: 50%;
@@ -159,7 +171,7 @@
     }
 
     @media (max-width: 512px) {
-        .interviews-modal {
+        .modal-interviews {
             &__list {
                 display: flex;
                 flex-direction: column;
