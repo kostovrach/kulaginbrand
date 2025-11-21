@@ -21,4 +21,3 @@
 
     const { content: page } = useCms<IProjectsPage>('projects_page');
 </script>
-

@@ -256,7 +256,7 @@
 }
 
 // effects
-@mixin gradient-text-hover($main-color: $c-000000, $accent-color: $c-FFFFFF) {
+@mixin gradient-text-hover($main-color: $c-000000, $accent-color: $c-accent) {
     @supports (background-clip: text) {
         color: transparent;
         background-clip: text;

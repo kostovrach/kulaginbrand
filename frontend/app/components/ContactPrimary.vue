@@ -88,7 +88,7 @@
                     <li>работать Вместе</li>
                 </ul>
                 <img class="contact-primary__arrow" src="/img/arrow-italic.svg" alt="#" />
-                <NuxtLink :to="{name: 'contact'}" class="contact-primary__button">
+                <NuxtLink :to="{ name: 'contact' }" class="contact-primary__button">
                     <span class="contact-primary__button-text">Напиши мне, я не кусаюсь!</span>
                     <span class="contact-primary__button-icon"><SvgSprite type="arrow" /></span>
                 </NuxtLink>
