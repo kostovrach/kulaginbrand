@@ -4,7 +4,7 @@
             <p class="cookie-notify__content">
                 Мы&nbsp;сохраняем файлы 🍪 cookie для быстрой и&nbsp;удобной работы сайта. Используя
                 сайт, вы&nbsp;принимаете:
-                <!-- <button
+                <button
                     type="button"
                     v-for="(policy, idx) in policies"
                     :key="policy?.id"
@@ -18,11 +18,13 @@
                 >
                     {{ policy.title.toLowerCase() }}
                     <template
-                        v-if="policies?.length && policies?.length > 1 && idx !== policies.length"
+                        v-if="
+                            policies?.length && policies?.length > 1 && idx + 1 !== policies.length
+                        "
                     >
                         <span>,</span>
                     </template>
-                </button> -->
+                </button>
             </p>
 
             <button class="cookie-notify__button" type="button" @click="setAgreement">
@@ -33,30 +35,30 @@
 </template>
 
 <script setup lang="ts">
-    // import type { IPolicy } from '~~/interfaces/policy';
+    import type { IPolicy } from '~~/interfaces/policy';
 
     import { ModalsDocs } from '#components';
     import { useModal } from 'vue-final-modal';
 
-    // const { content: policies, status: policiesStatus } = useCms<IPolicy[]>('policies');
+    const { content: policies, status: policiesStatus } = useCms<IPolicy[]>('policies');
 
     const isShowNotify = ref(false);
 
-    // function openDocsModal(title: string, dateUpdated: string, content: string) {
-    //     const { open: openModal, close: closeModal } = useModal({
-    //         component: ModalsDocs,
-    //         attrs: {
-    //             title: title,
-    //             dateUpdated: dateUpdated,
-    //             content: content,
-    //             status: policiesStatus.value,
-    //             onClose() {
-    //                 closeModal();
-    //             },
-    //         },
-    //     });
-    //     openModal();
-    // }
+    function openDocsModal(title: string, dateUpdated: string, content: string) {
+        const { open: openModal, close: closeModal } = useModal({
+            component: ModalsDocs,
+            attrs: {
+                title: title,
+                dateUpdated: dateUpdated,
+                content: content,
+                status: policiesStatus.value,
+                onClose() {
+                    closeModal();
+                },
+            },
+        });
+        openModal();
+    }
 
     const setAgreement = () => {
         if (!localStorage.getItem('cookie-accepted')) {
@@ -87,7 +89,7 @@
         box-sizing: border-box;
         color: $c-text;
         background-color: $c-main;
-        box-shadow: 1px 1px 5px $c-000000;
+        box-shadow: 1px 1px 5px rgba($c-000000, 0.3);
         animation: cookie-toast $td $tf;
         @keyframes cookie-toast {
             from {
@@ -101,14 +103,17 @@
             padding: rem(16);
         }
         &__content {
-            cursor: pointer;
+            cursor: default;
+            font-family: 'inter', sans-serif;
             font-size: rem(15);
             line-height: 1.2;
             > a,
             button {
+                cursor: pointer;
                 display: inline-flex;
                 color: $c-accent;
                 text-decoration: underline;
+                margin-right: 0.5ch;
                 @media (pointer: fine) {
                     &:hover {
                         text-decoration: none;

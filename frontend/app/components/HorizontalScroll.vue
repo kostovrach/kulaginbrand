@@ -323,7 +323,7 @@
         });
     });
 
-    onUnmounted(() => {
+    onBeforeUnmount(() => {
         removeListeners();
         cleanupMediaQuery();
         stopAnimation();
