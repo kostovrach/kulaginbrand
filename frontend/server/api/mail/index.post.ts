@@ -15,11 +15,12 @@ export default defineEventHandler(async (event) => {
     try {
         const data = await readBody<{
             name?: string;
-            telephone: string;
-            message?: string;
+            tel: string;
+            email?: string;
+            checkbox: boolean;
         }>(event);
 
-        if (!data?.telephone) {
+        if (!data?.tel) {
             throw createError({
                 statusCode: 400,
                 statusMessage: 'Не указан номер телефона',
@@ -44,8 +45,8 @@ export default defineEventHandler(async (event) => {
                 <h1>Заявка на обратную связь</h1>
                 <div>
                     <p><strong>Имя:</strong> ${data.name?.length ? data.name : 'Анонимная заявка'}</p>
-                    <p><strong>Номер телефона:</strong> ${data.telephone}</p>
-                    <p><strong>Описание заявки:</strong> ${data.message?.length ? data.message : 'Без дополнительной информации'}</p>
+                    <p><strong>Номер телефона:</strong> ${data.tel}</p>
+                    <p><strong>Электронная почта:</strong> ${data.email?.length ? data.email : 'Почта не указана'}</p>
                 </div>
             `,
         };

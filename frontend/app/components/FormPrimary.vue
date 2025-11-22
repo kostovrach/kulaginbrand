@@ -158,24 +158,23 @@
 
     // sending
     async function submitForm() {
-        // if (!validate()) return;
-        // isSubmitting.value = true;
-        // const API_FORM = import.meta.env.VITE_FORM_URL;
-        // try {
-        //     const response = await fetch(API_FORM, {
-        //         method: 'POST',
-        //         headers: { 'Content-Type': 'application/json' },
-        //         body: JSON.stringify(form),
-        //     });
-        //     if (!response.ok) throw new Error('Ошибка отправки данных');
-        //     form.name = '';
-        //     form.tel = '';
-        //     form.email = '';
-        // } catch (e) {
-        //     console.error(e);
-        // } finally {
-        //     isSubmitting.value = false;
-        // }
+        if (!validate()) return;
+        isSubmitting.value = true;
+
+        const res = await $fetch('/api/mail/', {
+            method: 'POST',
+            body: form,
+        });
+
+        if (res.ok) {
+            form.name = '';
+            form.tel = '';
+            form.email = '';
+            isSubmitting.value = false;
+        } else {
+            alert('Ошибка отправки данных, повторите попытку позже');
+            throw new Error('Ошибка отправки данных, повторите попытку позже');
+        }
     }
 </script>
 
