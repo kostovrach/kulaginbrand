@@ -18,7 +18,14 @@
                         :space-between="96"
                         width="100%"
                     >
-                        <div class="hobby__slide-wrapper">
+                        <NuxtLink
+                            :to="{
+                                name: 'blog-slug',
+                                params: { slug: slugify(slide.title) },
+                                query: { id: slide.article },
+                            }"
+                            class="hobby__slide-wrapper"
+                        >
                             <h2 class="hobby__slide-title">{{ slide.title }}</h2>
                             <template v-if="slide.file.type.startsWith('video/')">
                                 <div
@@ -54,7 +61,7 @@
                             <p class="hobby__slide-desc" v-if="slide.subtitle">
                                 {{ slide.subtitle }}
                             </p>
-                        </div>
+                        </NuxtLink>
                     </EmblaSlide>
                 </EmblaContainer>
                 <div class="hobby__controls">
@@ -91,6 +98,7 @@
         title: string;
         subtitle: string | null;
         file: IDirectusFile;
+        article: string;
     }
 
     // data =================================================================
@@ -117,25 +125,26 @@
     const scrollPrev = useDebounceFn(() => sliderRef?.value?.emblaApi?.scrollPrev(), 100);
     const scrollNext = useDebounceFn(() => sliderRef?.value?.emblaApi?.scrollNext(), 100);
 
-    let wheelHandler: (event: WheelEvent) => void;
+    // let wheelHandler: (event: WheelEvent) => void;
+
+    function wheelHandler(event: WheelEvent) {
+        event.preventDefault();
+        if (event.deltaY > 0) scrollNext();
+        if (event.deltaY < 0) scrollPrev();
+    }
     // =======================================================================
 
-    onMounted(() => {
+    onMounted(async () => {
+        await nextTick();
+
         sliderRef.value?.emblaApi?.on('select', updateSnapDisplay).on('reInit', updateSnapDisplay);
         updateSnapDisplay();
 
-        wheelHandler = (event: WheelEvent) => {
-            event.preventDefault();
-            if (event.deltaY > 0) scrollNext();
-            if (event.deltaY < 0) scrollPrev();
-        };
-
         window.addEventListener('wheel', wheelHandler, { passive: false });
     });
-    onBeforeMount(() => {
-        if (wheelHandler) {
-            window.removeEventListener('wheel', wheelHandler);
-        }
+
+    onUnmounted(() => {
+        window.removeEventListener('wheel', wheelHandler);
     });
 </script>
 
@@ -180,6 +189,7 @@
                 }
             }
             &-wrapper {
+                display: block;
                 width: 100%;
                 height: 100%;
             }

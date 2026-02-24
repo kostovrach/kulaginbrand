@@ -89,7 +89,6 @@
             line-height: 1.2;
             text-transform: uppercase;
             max-width: 40ch;
-            margin-top: rem(32);
         }
         // Временное изображение
         //

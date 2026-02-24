@@ -115,7 +115,7 @@
     }
 
     function handleWheel(e: WheelEvent) {
-        if (!isActive.value) return;
+        if (!isActive.value || !containerRef.value) return;
 
         e.preventDefault();
 
@@ -273,16 +273,14 @@
     }
 
     function removeListeners() {
-        if (!containerRef.value) return;
-
-        containerRef.value.removeEventListener('wheel', handleWheel);
-        containerRef.value.removeEventListener('touchstart', handleTouchStart);
-        containerRef.value.removeEventListener('touchmove', handleTouchMove);
-        containerRef.value.removeEventListener('touchend', handleTouchEnd);
+        containerRef.value?.removeEventListener('wheel', handleWheel);
+        containerRef.value?.removeEventListener('touchstart', handleTouchStart);
+        containerRef.value?.removeEventListener('touchmove', handleTouchMove);
+        containerRef.value?.removeEventListener('touchend', handleTouchEnd);
         window.removeEventListener('keydown', handleKeydown);
 
-        containerRef.value.removeAttribute('aria-label');
-        containerRef.value.removeAttribute('tabindex');
+        containerRef.value?.removeAttribute('aria-label');
+        containerRef.value?.removeAttribute('tabindex');
     }
 
     function setupMediaQuery() {
@@ -308,7 +306,7 @@
     }
 
     onMounted(() => {
-        if (process.server) return;
+        if (!import.meta.client) return;
 
         setupMediaQuery();
 
@@ -324,6 +322,7 @@
     });
 
     onBeforeUnmount(() => {
+        console.log('HorizontalScroll unmounting, removing listeners');
         removeListeners();
         cleanupMediaQuery();
         stopAnimation();

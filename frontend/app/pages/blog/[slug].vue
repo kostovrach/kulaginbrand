@@ -5,16 +5,6 @@
                 <article class="article__body">
                     <header class="article__header">
                         <div class="article__titlebox">
-                            <time
-                                class="article__date"
-                                :datetime="article?.date_updated ?? article?.date_created ?? ''"
-                            >
-                                {{
-                                    normalizeDate(
-                                        article?.date_updated ?? article?.date_created ?? ''
-                                    )
-                                }}
-                            </time>
                             <h1 class="article__title">{{ article?.title }}</h1>
                             <button class="article__back-link" type="button" @click="goBack">
                                 <span class="article__back-link-icon">
@@ -141,14 +131,6 @@
             flex-direction: column;
             gap: rem(24);
             @include vertical-layout;
-        }
-        &__date {
-            align-self: flex-end;
-            font-family: 'Inter', sans-serif;
-            text-transform: uppercase;
-            font-size: rem(14);
-            font-weight: $fw-med;
-            color: $c-323232;
         }
         &__title {
             font-family: 'Fira-Extra', sans-serif;

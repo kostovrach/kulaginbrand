@@ -13,7 +13,7 @@
                 cursor: 'none',
             }"
         >
-            <span>Заказать&nbsp;проект</span>
+            <span>О&nbsp;студии</span>
         </CircleButton>
         <div class="agency__wrapper">
             <div class="agency__titlebox">
@@ -29,9 +29,9 @@
                 variant="grey"
                 style="font-size: 20px"
             >
-                Заказать&nbsp;проект
+                О&nbsp;студии
             </CircleButton>
-            <HomeAutoAccordion :interval="5000" :items="props.slides"></HomeAutoAccordion>
+            <HomeAutoAccordion :interval="5000" :items="props.slides" />
         </div>
     </div>
 </template>

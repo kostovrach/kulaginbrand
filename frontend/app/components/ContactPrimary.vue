@@ -209,6 +209,8 @@
         }
         &__title {
             grid-area: title;
+            position: relative;
+            z-index: 2;
             @include block-title($max-width: initial, $font-size: lineScale-y(120, 32, 480, 1080));
             :nth-child(2) {
                 padding-left: lineScale(96, 32, 480, 1440);
