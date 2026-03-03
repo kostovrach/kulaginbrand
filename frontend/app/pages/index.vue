@@ -65,25 +65,24 @@
     .home {
         $p: &;
 
-        height: 100%;
+        height: 100lvh;
+        width: 100%;
         max-width: 100vw;
+        min-height: fit-content;
         padding: rem(32) lineScale(32, 0, 480, 1440);
         background-color: #dfdddd;
-        overflow-x: hidden;
+        overflow: hidden;
         &__container {
-            min-height: calc(100lvh - rem(64));
             height: 100%;
+            min-height: rem(600);
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: rem(16);
-        }
-    }
-
-    @media (max-width: 1024px) {
-        .home {
-            &__container {
+            overflow: hidden;
+            @media (max-width: 1024px) {
                 display: flex;
                 flex-direction: column-reverse;
+                min-height: rem(1240);
             }
         }
     }

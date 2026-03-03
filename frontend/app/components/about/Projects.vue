@@ -33,8 +33,8 @@
                                 class="projects__item--type1-interactive"
                                 style="rotate: 7deg"
                                 variant="black-2"
-                                textAccent="от 120%"
-                                textMain="средний рост конверсии"
+                                textAccent="20–80%"
+                                textMain="рост среднего чека компании"
                             />
                         </Draggble>
                         <div class="projects__item--type1-wrapper">
@@ -173,12 +173,12 @@
                     </Draggble>
                 </div>
                 <ContactPrimary />
-                <div class="projects__footer-runline">
-                    <span v-for="n in 2" :key="n">
-                        Для лиц 21+. сайт несет развлекательный характер. все совпадения случайны,
-                        персонажи вымышлены, перед употреблением проконсультируйтесь со специалистом
-                    </span>
-                </div>
+            </div>
+            <div class="projects__runline">
+                <span v-for="n in 2" :key="n">
+                    Для лиц 21+. сайт несет развлекательный характер. все совпадения случайны,
+                    персонажи вымышлены, перед употреблением проконсультируйтесь со специалистом
+                </span>
             </div>
         </div>
     </section>
@@ -454,32 +454,6 @@
         }
         &__footer {
             position: relative;
-            &-runline {
-                position: absolute;
-                top: 0;
-                right: -117%;
-                rotate: -90deg;
-                height: 1em;
-                white-space: nowrap;
-                text-transform: uppercase;
-                font-family: 'Fira-Extra', sans-serif;
-                font-size: rem(22);
-                color: $c-9E9595;
-                display: flex;
-                > span {
-                    display: block;
-                    will-change: translate;
-                    animation: runline 15s linear infinite;
-                }
-            }
-            @keyframes runline {
-                0% {
-                    translate: 0 0;
-                }
-                100% {
-                    translate: -100% 0;
-                }
-            }
         }
         &__interactive {
             width: rem(282);
@@ -492,6 +466,33 @@
                 height: rem(515);
                 object-fit: contain;
                 pointer-events: auto;
+            }
+        }
+        &__runline {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: rem(22);
+            height: 100lvh;
+            display: flex;
+            font-family: 'Fira-Extra', sans-serif;
+            font-size: rem(22);
+            color: $c-9E9595;
+            white-space: nowrap;
+            writing-mode: sideways-lr;
+            text-transform: uppercase;
+            > span {
+                display: block;
+                will-change: translate;
+                animation: runline 15s linear infinite;
+            }
+        }
+        @keyframes runline {
+            0% {
+                translate: 0 0;
+            }
+            100% {
+                translate: 0 100%;
             }
         }
     }

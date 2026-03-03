@@ -24,37 +24,35 @@
         }>(),
         {
             interval: 2000,
+            items: () => [],
         }
     );
 
     const activeIndex = ref(0);
-    let timer: NodeJS.Timeout | null = null;
+    const timer = ref<NodeJS.Timeout | null>(null);
 
-    const next = () => {
+    function next() {
         activeIndex.value = (activeIndex.value + 1) % props.items.length;
-    };
+    }
 
-    const start = () => {
+    function start() {
         stop();
-        if (props.items.length > 0) {
-            timer = setInterval(next, props.interval);
-        }
-    };
+        timer.value = setInterval(next, props.interval);
+    }
 
-    const stop = () => {
-        if (timer) {
-            clearInterval(timer);
-            timer = null;
+    function stop() {
+        if (timer.value) {
+            clearInterval(timer.value);
+            timer.value = null;
         }
-    };
+    }
 
     onMounted(async () => {
         await nextTick();
         start();
     });
-    onBeforeUnmount(stop);
 
-    watch(() => props.interval, start);
+    onUnmounted(() => stop);
 </script>
 
 <style scoped lang="scss">

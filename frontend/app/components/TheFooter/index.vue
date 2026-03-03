@@ -72,7 +72,13 @@
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    kulaginbrand.ru
+                    {{
+                        contact?.studio_link
+                            .trim()
+                            .replace(/\s+/g, '')
+                            .replace('https://', '')
+                            .replace('http://', '')
+                    }}
                 </a>
             </div>
         </div>

@@ -7,8 +7,8 @@
                         class="projects__sticker"
                         style="rotate: 15deg"
                         variant="red"
-                        textAccent="250+"
-                        textMain="компаний по всему миру"
+                        textAccent="+70–90%"
+                        textMain="закрытие входящих сделок"
                     />
                 </Draggble>
                 <Draggble :top="90" :left="20">
@@ -16,8 +16,8 @@
                         class="projects__sticker"
                         style="rotate: -15deg"
                         variant="black"
-                        textAccent="65+"
-                        textMain="российских компаний"
+                        textAccent="+40–120%"
+                        textMain="к&nbsp;лояльности клиентов"
                     />
                 </Draggble>
                 <div class="projects__titlebox">

@@ -115,7 +115,10 @@
     .navigator {
         $p: &;
 
+        flex: 0 1 auto;
         position: relative;
+        height: 100%;
+        max-height: fit-content;
         background-color: $c-main;
         border-radius: rem(24);
         overflow: hidden;
@@ -135,14 +138,14 @@
             }
         }
         &__wrapper {
-            height: 100%;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, auto);
+            grid-template-rows: repeat(3, 1fr);
             grid-template-areas:
                 'titlebox titlebox socials'
                 'image image socials'
                 'image image socials';
+            height: 100%;
         }
         &__titlebox {
             grid-area: titlebox;
@@ -177,16 +180,23 @@
         }
         &__image-container {
             grid-area: image;
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        &__image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            scale: 1.2;
+
         }
         &__socials {
             grid-area: socials;
-            justify-self: flex-end;
             position: relative;
+            justify-self: flex-end;
             &-title {
                 position: absolute;
                 top: 50%;

@@ -322,7 +322,6 @@
     });
 
     onBeforeUnmount(() => {
-        console.log('HorizontalScroll unmounting, removing listeners');
         removeListeners();
         cleanupMediaQuery();
         stopAnimation();

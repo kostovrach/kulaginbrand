@@ -65,8 +65,8 @@
             class="sticker"
             style="rotate: -10deg"
             variant="default"
-            textAccent="от 120%"
-            textMain="средний рост конверсии"
+            textAccent="от 20%"
+            textMain="увеличиваю оборот компании"
         />
     </Draggble>
 
@@ -75,8 +75,8 @@
             class="sticker"
             style="rotate: 5deg"
             variant="black"
-            textAccent="от 120%"
-            textMain="средний рост конверсии"
+            textAccent="20–80%"
+            textMain="рост среднего чека компании"
         />
     </Draggble>
 
@@ -85,8 +85,8 @@
             class="sticker"
             style="rotate: -15deg"
             variant="red"
-            textAccent="от 120%"
-            textMain="средний рост конверсии"
+            textAccent="+70–90%"
+            textMain="закрытие входящих сделок"
         />
     </Draggble>
 </template>

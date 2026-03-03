@@ -31,8 +31,8 @@
                         class="about-hero__sticker--hide"
                         style="rotate: -5deg"
                         variant="black"
-                        textAccent="от 120%"
-                        textMain="средний рост конверсии"
+                        textAccent="+40–120%"
+                        textMain="к&nbsp;лояльности клиентов"
                     />
                 </Draggble>
 
