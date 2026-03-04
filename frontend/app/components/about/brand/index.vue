@@ -11,7 +11,7 @@
                     </template>
                     <template v-if="value && value.type.startsWith('video/')">
                         <div class="about-brand__letter">
-                            <video class="about-brand__letter-media">
+                            <video class="about-brand__letter-media" muted autoplay loop playsinline>
                                 <source :src="`/api/cms/assets/${value.id}`" :type="value.type">
                             </video>
                         </div>
