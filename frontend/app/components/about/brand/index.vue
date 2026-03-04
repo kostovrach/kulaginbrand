@@ -3,21 +3,20 @@
         <div class="about-brand__container">
             <div class="about-brand__body">
                 <AboutBrandStickers />
-                <picture class="about-brand__image-container">
-                    <img class="about-brand__image" :src="props.letters.B" alt="#" />
-                </picture>
-                <picture class="about-brand__image-container">
-                    <img class="about-brand__image" :src="props.letters.R" alt="#" />
-                </picture>
-                <picture class="about-brand__image-container">
-                    <img class="about-brand__image" :src="props.letters.A" alt="#" />
-                </picture>
-                <picture class="about-brand__image-container">
-                    <img class="about-brand__image" :src="props.letters.N" alt="#" />
-                </picture>
-                <picture class="about-brand__image-container">
-                    <img class="about-brand__image" :src="props.letters.D" alt="#" />
-                </picture>
+                <template v-for="[key, value] in Object.entries(props.letters)" :key="key">
+                    <template v-if="value && value.type.startsWith('image/')">
+                        <picture class="about-brand__letter">
+                            <img class="about-brand__letter-media" :src="`/api/cms/assets/${value.id}`" alt="#" />
+                        </picture>
+                    </template>
+                    <template v-if="value && value.type.startsWith('video/')">
+                        <div class="about-brand__letter">
+                            <video class="about-brand__letter-media">
+                                <source :src="`/api/cms/assets/${value.id}`" :type="value.type">
+                            </video>
+                        </div>
+                    </template>
+                </template>
             </div>
             <div class="about-brand__hint">
                 <TheSectionHint class="home-hero__hint" :hint="props.hint" />
@@ -93,6 +92,7 @@
 
 <script setup lang="ts">
     import type { IVideoHint } from '~~/interfaces/chunks/hint';
+    import type { IDirectusFile } from '~~/interfaces/direcctus-file';
 
     const props = withDefaults(
         defineProps<{
@@ -108,11 +108,11 @@
             footer_image: string;
 
             letters: {
-                B: string;
-                R: string;
-                A: string;
-                N: string;
-                D: string;
+                B: IDirectusFile | null;
+                R: IDirectusFile | null;
+                A: IDirectusFile | null;
+                N: IDirectusFile | null;
+                D: IDirectusFile | null;
             };
             gallery: {
                 image_1: string;
@@ -157,7 +157,7 @@
             height: 100%;
             object-fit: cover;
         }
-        &__image-container {
+        &__letter {
             position: relative;
             z-index: 1;
             height: 100%;
@@ -195,11 +195,11 @@
                     mask-image: url(/img/masks/letters/d-rotate.svg);
                 }
             }
-        }
-        &__image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            &-media {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
         &__hint {
             display: flex;

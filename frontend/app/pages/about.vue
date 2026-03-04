@@ -15,11 +15,11 @@
             :form_subtitle="page?.brand_form_subtitle ?? ''"
             :form_image="page?.brand_form_image_url ?? ''"
             :letters="{
-                B: page?.brand_letter_b_url ?? '',
-                R: page?.brand_letter_r_url ?? '',
-                A: page?.brand_letter_a_url ?? '',
-                N: page?.brand_letter_n_url ?? '',
-                D: page?.brand_letter_d_url ?? '',
+                B: page?.brand_letter_b ?? null,
+                R: page?.brand_letter_r ?? null,
+                A: page?.brand_letter_a ?? null,
+                N: page?.brand_letter_n ?? null,
+                D: page?.brand_letter_d ?? null,
             }"
             :gallery="{
                 image_1: page?.brand_gallery_1_url ?? '',
@@ -65,6 +65,7 @@
 
 <script setup lang="ts">
     import type { IVideoHint } from '~~/interfaces/chunks/hint';
+import type { IDirectusFile } from '~~/interfaces/direcctus-file';
 
     interface IAboutPage {
         id: string | number;
@@ -76,16 +77,11 @@
         hero_image_url?: string;
         hero_hint: IVideoHint;
 
-        brand_letter_b: string;
-        brand_letter_b_url?: string;
-        brand_letter_r: string;
-        brand_letter_r_url?: string;
-        brand_letter_a: string;
-        brand_letter_a_url?: string;
-        brand_letter_n: string;
-        brand_letter_n_url?: string;
-        brand_letter_d: string;
-        brand_letter_d_url?: string;
+        brand_letter_b: IDirectusFile;
+        brand_letter_r: IDirectusFile;
+        brand_letter_a: IDirectusFile;
+        brand_letter_n: IDirectusFile;
+        brand_letter_d: IDirectusFile;
 
         brand_hint: IVideoHint;
         brand_title: string;
@@ -151,7 +147,15 @@
         navigator_image_url?: string;
     }
 
-    const { content: page } = useCms<IAboutPage>('about_page', ['hero_hint.*', 'brand_hint.*']);
+    const { content: page } = useCms<IAboutPage>('about_page', [
+        'hero_hint.*',
+        'brand_hint.*',
+        'brand_letter_b.*',
+        'brand_letter_r.*',
+        'brand_letter_a.*',
+        'brand_letter_n.*',
+        'brand_letter_d.*',
+    ]);
 </script>
 
 <style scoped></style>
