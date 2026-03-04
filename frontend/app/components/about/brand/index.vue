@@ -3,9 +3,11 @@
         <div class="about-brand__container">
             <div class="about-brand__body">
                 <AboutBrandStickers />
-                <template v-for="[key, value] in Object.entries(props.letters)" :key="key">
+                <template v-for="([key, value], idx) in Object.entries(props.letters)" :key="key">
                     <template v-if="value && value.type.startsWith('image/')">
-                        <picture class="about-brand__letter">
+                        <picture
+                            :class="['about-brand__letter', `about-brand__letter--type-${idx + 1}`]"
+                        >
                             <img
                                 class="about-brand__letter-media"
                                 :src="`/api/cms/assets/${value.id}`"
@@ -14,7 +16,9 @@
                         </picture>
                     </template>
                     <template v-if="value && value.type.startsWith('video/')">
-                        <div class="about-brand__letter">
+                        <div
+                            :class="['about-brand__letter', `about-brand__letter--type-${idx + 1}`]"
+                        >
                             <video
                                 class="about-brand__letter-media"
                                 muted
@@ -45,9 +49,14 @@
                     {{ props.subtitle }}
                 </p>
 
-                <template v-for="[key, value] in Object.entries(props.gallery)" :key="key">
+                <template v-for="([key, value], idx) in Object.entries(props.gallery)" :key="key">
                     <template v-if="value && value.type.startsWith('image/')">
-                        <picture class="about-brand__services-media-container">
+                        <picture
+                            :class="[
+                                'about-brand__services-media-container',
+                                `about-brand__services-media-container--type-${idx + 1}`,
+                            ]"
+                        >
                             <img
                                 class="about-brand__services-media"
                                 :src="`/api/cms/assets/${value.id}`"
@@ -56,7 +65,12 @@
                         </picture>
                     </template>
                     <template v-if="value && value.type.startsWith('video/')">
-                        <div class="about-brand__services-media-container">
+                        <div
+                            :class="[
+                                'about-brand__services-media-container',
+                                `about-brand__services-media-container--type-${idx + 1}`,
+                            ]"
+                        >
                             <video
                                 class="about-brand__services-media"
                                 muted
@@ -172,31 +186,31 @@
             mask-repeat: no-repeat;
             mask-size: 100% 100%;
             @include horizontal-max-height;
-            &:nth-child(5n + 1) {
+            &--type-1 {
                 mask-image: url(/img/masks/letters/b.svg);
                 @media (max-width: 768px) {
                     mask-image: url(/img/masks/letters/b-rotate.svg);
                 }
             }
-            &:nth-child(5n + 2) {
+            &--type-2 {
                 mask-image: url(/img/masks/letters/r.svg);
                 @media (max-width: 768px) {
                     mask-image: url(/img/masks/letters/r-rotate.svg);
                 }
             }
-            &:nth-child(5n + 3) {
+            &--type-3 {
                 mask-image: url(/img/masks/letters/a.svg);
                 @media (max-width: 768px) {
                     mask-image: url(/img/masks/letters/a-rotate.svg);
                 }
             }
-            &:nth-child(5n + 4) {
+            &--type-4 {
                 mask-image: url(/img/masks/letters/n.svg);
                 @media (max-width: 768px) {
                     mask-image: url(/img/masks/letters/n-rotate.svg);
                 }
             }
-            &:nth-child(5n + 5) {
+            &--type-5 {
                 mask-image: url(/img/masks/letters/d.svg);
                 @media (max-width: 768px) {
                     mask-image: url(/img/masks/letters/d-rotate.svg);
@@ -254,60 +268,60 @@
                 font-weight: $fw-bold;
             }
             &-media-container {
-                &:nth-child(9n + 1) {
+                &--type-1 {
                     grid-area: image-1;
                     max-width: rem(326);
                     max-height: rem(326);
                     rotate: 9deg;
                     translate: 20% 0;
                 }
-                &:nth-child(9n + 2) {
+                &--type-2 {
                     grid-area: image-2;
                     max-width: rem(230);
                     max-height: rem(319);
                     rotate: -3deg;
                 }
-                &:nth-child(9n + 3) {
+                &--type-3 {
                     grid-area: image-3;
                     max-width: rem(464);
                     max-height: rem(464);
                     rotate: 2.55deg;
                 }
-                &:nth-child(9n + 4) {
+                &--type-4 {
                     grid-area: image-4;
                     max-width: rem(416);
                     max-height: rem(350);
                     rotate: -8deg;
                     translate: -10% 0;
                 }
-                &:nth-child(9n + 5) {
+                &--type-5 {
                     grid-area: image-5;
                     max-width: rem(400);
                     max-height: rem(350);
                     rotate: 7deg;
                     translate: -20% 0;
                 }
-                &:nth-child(9n + 6) {
+                &--type-6 {
                     grid-area: image-6;
                     max-width: rem(326);
                     max-height: rem(326);
                     rotate: 13deg;
                     translate: 10% -10%;
                 }
-                &:nth-child(9n + 7) {
+                &--type-7 {
                     grid-area: image-7;
                     max-width: rem(326);
                     max-height: rem(326);
                     rotate: 17deg;
                 }
-                &:nth-child(9n + 8) {
+                &--type-8 {
                     grid-area: image-8;
                     max-width: rem(326);
                     max-height: rem(326);
                     rotate: -6deg;
                     translate: -40% 0;
                 }
-                &:nth-child(9n + 9) {
+                &--type-9 {
                     grid-area: image-9;
                     max-width: rem(180);
                     max-height: rem(326);
