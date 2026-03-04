@@ -146,6 +146,15 @@
         'brand_letter_a.*',
         'brand_letter_n.*',
         'brand_letter_d.*',
+        'brand_gallery_1.*',
+        'brand_gallery_2.*',
+        'brand_gallery_3.*',
+        'brand_gallery_4.*',
+        'brand_gallery_5.*',
+        'brand_gallery_6.*',
+        'brand_gallery_7.*',
+        'brand_gallery_8.*',
+        'brand_gallery_9.*',
     ]);
 </script>
 
