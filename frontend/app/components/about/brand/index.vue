@@ -172,31 +172,31 @@
             mask-repeat: no-repeat;
             mask-size: 100% 100%;
             @include horizontal-max-height;
-            &:nth-of-type(5n + 1) {
+            &:nth-child(5n + 1) {
                 mask-image: url(/img/masks/letters/b.svg);
                 @media (max-width: 768px) {
                     mask-image: url(/img/masks/letters/b-rotate.svg);
                 }
             }
-            &:nth-of-type(5n + 2) {
+            &:nth-child(5n + 2) {
                 mask-image: url(/img/masks/letters/r.svg);
                 @media (max-width: 768px) {
                     mask-image: url(/img/masks/letters/r-rotate.svg);
                 }
             }
-            &:nth-of-type(5n + 3) {
+            &:nth-child(5n + 3) {
                 mask-image: url(/img/masks/letters/a.svg);
                 @media (max-width: 768px) {
                     mask-image: url(/img/masks/letters/a-rotate.svg);
                 }
             }
-            &:nth-of-type(5n + 4) {
+            &:nth-child(5n + 4) {
                 mask-image: url(/img/masks/letters/n.svg);
                 @media (max-width: 768px) {
                     mask-image: url(/img/masks/letters/n-rotate.svg);
                 }
             }
-            &:nth-of-type(5n + 5) {
+            &:nth-child(5n + 5) {
                 mask-image: url(/img/masks/letters/d.svg);
                 @media (max-width: 768px) {
                     mask-image: url(/img/masks/letters/d-rotate.svg);
@@ -254,60 +254,60 @@
                 font-weight: $fw-bold;
             }
             &-media-container {
-                &:nth-of-type(1) {
+                &:nth-child(9n + 1) {
                     grid-area: image-1;
                     max-width: rem(326);
                     max-height: rem(326);
                     rotate: 9deg;
                     translate: 20% 0;
                 }
-                &:nth-of-type(2) {
+                &:nth-child(9n + 2) {
                     grid-area: image-2;
                     max-width: rem(230);
                     max-height: rem(319);
                     rotate: -3deg;
                 }
-                &:nth-of-type(3) {
+                &:nth-child(9n + 3) {
                     grid-area: image-3;
                     max-width: rem(464);
                     max-height: rem(464);
                     rotate: 2.55deg;
                 }
-                &:nth-of-type(4) {
+                &:nth-child(9n + 4) {
                     grid-area: image-4;
                     max-width: rem(416);
                     max-height: rem(350);
                     rotate: -8deg;
                     translate: -10% 0;
                 }
-                &:nth-of-type(5) {
+                &:nth-child(9n + 5) {
                     grid-area: image-5;
                     max-width: rem(400);
                     max-height: rem(350);
                     rotate: 7deg;
                     translate: -20% 0;
                 }
-                &:nth-of-type(6) {
+                &:nth-child(9n + 6) {
                     grid-area: image-6;
                     max-width: rem(326);
                     max-height: rem(326);
                     rotate: 13deg;
                     translate: 10% -10%;
                 }
-                &:nth-of-type(7) {
+                &:nth-child(9n + 7) {
                     grid-area: image-7;
                     max-width: rem(326);
                     max-height: rem(326);
                     rotate: 17deg;
                 }
-                &:nth-of-type(8) {
+                &:nth-child(9n + 8) {
                     grid-area: image-8;
                     max-width: rem(326);
                     max-height: rem(326);
                     rotate: -6deg;
                     translate: -40% 0;
                 }
-                &:nth-of-type(9) {
+                &:nth-child(9n + 9) {
                     grid-area: image-9;
                     max-width: rem(180);
                     max-height: rem(326);
