@@ -22,15 +22,15 @@
                 D: page?.brand_letter_d ?? null,
             }"
             :gallery="{
-                image_1: page?.brand_gallery_1_url ?? '',
-                image_2: page?.brand_gallery_2_url ?? '',
-                image_3: page?.brand_gallery_3_url ?? '',
-                image_4: page?.brand_gallery_4_url ?? '',
-                image_5: page?.brand_gallery_5_url ?? '',
-                image_6: page?.brand_gallery_6_url ?? '',
-                image_7: page?.brand_gallery_7_url ?? '',
-                image_8: page?.brand_gallery_8_url ?? '',
-                image_9: page?.brand_gallery_9_url ?? '',
+                image_1: page?.brand_gallery_1 ?? null,
+                image_2: page?.brand_gallery_2 ?? null,
+                image_3: page?.brand_gallery_3 ?? null,
+                image_4: page?.brand_gallery_4 ?? null,
+                image_5: page?.brand_gallery_5 ?? null,
+                image_6: page?.brand_gallery_6 ?? null,
+                image_7: page?.brand_gallery_7 ?? null,
+                image_8: page?.brand_gallery_8 ?? null,
+                image_9: page?.brand_gallery_9 ?? null,
             }"
         />
         <AboutProjects
@@ -65,7 +65,7 @@
 
 <script setup lang="ts">
     import type { IVideoHint } from '~~/interfaces/chunks/hint';
-import type { IDirectusFile } from '~~/interfaces/direcctus-file';
+    import type { IDirectusFile } from '~~/interfaces/direcctus-file';
 
     interface IAboutPage {
         id: string | number;
@@ -87,24 +87,15 @@ import type { IDirectusFile } from '~~/interfaces/direcctus-file';
         brand_title: string;
         brand_description: string | null;
 
-        brand_gallery_1: string;
-        brand_gallery_1_url?: string;
-        brand_gallery_2: string;
-        brand_gallery_2_url?: string;
-        brand_gallery_3: string;
-        brand_gallery_3_url?: string;
-        brand_gallery_4: string;
-        brand_gallery_4_url?: string;
-        brand_gallery_5: string;
-        brand_gallery_5_url?: string;
-        brand_gallery_6: string;
-        brand_gallery_6_url?: string;
-        brand_gallery_7: string;
-        brand_gallery_7_url?: string;
-        brand_gallery_8: string;
-        brand_gallery_8_url?: string;
-        brand_gallery_9: string;
-        brand_gallery_9_url?: string;
+        brand_gallery_1: IDirectusFile | null;
+        brand_gallery_2: IDirectusFile | null;
+        brand_gallery_3: IDirectusFile | null;
+        brand_gallery_4: IDirectusFile | null;
+        brand_gallery_5: IDirectusFile | null;
+        brand_gallery_6: IDirectusFile | null;
+        brand_gallery_7: IDirectusFile | null;
+        brand_gallery_8: IDirectusFile | null;
+        brand_gallery_9: IDirectusFile | null;
 
         brand_form_title: string;
         brand_form_subtitle: string;

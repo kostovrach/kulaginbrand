@@ -6,13 +6,23 @@
                 <template v-for="[key, value] in Object.entries(props.letters)" :key="key">
                     <template v-if="value && value.type.startsWith('image/')">
                         <picture class="about-brand__letter">
-                            <img class="about-brand__letter-media" :src="`/api/cms/assets/${value.id}`" alt="#" />
+                            <img
+                                class="about-brand__letter-media"
+                                :src="`/api/cms/assets/${value.id}`"
+                                alt="#"
+                            />
                         </picture>
                     </template>
                     <template v-if="value && value.type.startsWith('video/')">
                         <div class="about-brand__letter">
-                            <video class="about-brand__letter-media" muted autoplay loop playsinline>
-                                <source :src="`/api/cms/assets/${value.id}`" :type="value.type">
+                            <video
+                                class="about-brand__letter-media"
+                                muted
+                                autoplay
+                                loop
+                                playsinline
+                            >
+                                <source :src="`/api/cms/assets/${value.id}`" :type="value.type" />
                             </video>
                         </div>
                     </template>
@@ -35,33 +45,30 @@
                     {{ props.subtitle }}
                 </p>
 
-                <picture class="about-brand__services-image-container">
-                    <img class="about-brand__services-image" :src="props.gallery.image_1" alt="#" />
-                </picture>
-                <picture class="about-brand__services-image-container">
-                    <img class="about-brand__services-image" :src="props.gallery.image_2" alt="#" />
-                </picture>
-                <picture class="about-brand__services-image-container">
-                    <img class="about-brand__services-image" :src="props.gallery.image_3" alt="#" />
-                </picture>
-                <picture class="about-brand__services-image-container">
-                    <img class="about-brand__services-image" :src="props.gallery.image_4" alt="#" />
-                </picture>
-                <picture class="about-brand__services-image-container">
-                    <img class="about-brand__services-image" :src="props.gallery.image_5" alt="#" />
-                </picture>
-                <picture class="about-brand__services-image-container">
-                    <img class="about-brand__services-image" :src="props.gallery.image_6" alt="#" />
-                </picture>
-                <picture class="about-brand__services-image-container">
-                    <img class="about-brand__services-image" :src="props.gallery.image_7" alt="#" />
-                </picture>
-                <picture class="about-brand__services-image-container">
-                    <img class="about-brand__services-image" :src="props.gallery.image_8" alt="#" />
-                </picture>
-                <picture class="about-brand__services-image-container">
-                    <img class="about-brand__services-image" :src="props.gallery.image_9" alt="#" />
-                </picture>
+                <template v-for="[key, value] in Object.entries(props.gallery)" :key="key">
+                    <template v-if="value && value.type.startsWith('image/')">
+                        <picture class="about-brand__services-media-container">
+                            <img
+                                class="about-brand__services-media"
+                                :src="`/api/cms/assets/${value.id}`"
+                                alt="#"
+                            />
+                        </picture>
+                    </template>
+                    <template v-if="value && value.type.startsWith('video/')">
+                        <div class="about-brand__services-media-container">
+                            <video
+                                class="about-brand__services-media"
+                                muted
+                                autoplay
+                                loop
+                                playsinline
+                            >
+                                <source :src="`/api/cms/assets/${value.id}`" :type="value.type" />
+                            </video>
+                        </div>
+                    </template>
+                </template>
             </div>
 
             <FormPrimary
@@ -115,15 +122,15 @@
                 D: IDirectusFile | null;
             };
             gallery: {
-                image_1: string;
-                image_2: string;
-                image_3: string;
-                image_4: string;
-                image_5: string;
-                image_6: string;
-                image_7: string;
-                image_8: string;
-                image_9: string;
+                image_1: IDirectusFile | null;
+                image_2: IDirectusFile | null;
+                image_3: IDirectusFile | null;
+                image_4: IDirectusFile | null;
+                image_5: IDirectusFile | null;
+                image_6: IDirectusFile | null;
+                image_7: IDirectusFile | null;
+                image_8: IDirectusFile | null;
+                image_9: IDirectusFile | null;
             };
         }>(),
         {}
@@ -246,7 +253,7 @@
                 font-size: lineScale(32, 24, 480, 1440);
                 font-weight: $fw-bold;
             }
-            &-image-container {
+            &-media-container {
                 &:nth-of-type(1) {
                     grid-area: image-1;
                     max-width: rem(326);
@@ -308,7 +315,7 @@
                     translate: -80% 0;
                 }
             }
-            &-image {
+            &-media {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
